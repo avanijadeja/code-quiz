@@ -18,12 +18,15 @@ N/A
 TO use this code-quiz application, you can see javascript question with multiple answers.So you can improve your javascript knowledge also in this user can see others user result with their initials so you can compare your results with others participates.I attached few screenshots of code-quiz applicatio here and github repository link and deployed link of this applicaiton.
 
 
-1) The URL of code-quiz deployed application -
+1) The URL of code-quiz deployed application - https://avanijadeja.github.io/code-quiz/
 
-2) The URL of the code-quiz GitHub repository -
+2) The URL of the code-quiz GitHub repository - https://github.com/avanijadeja/code-quiz
+
+
 
 
 Here you can see screenshots of code-quiz website.
+
 ![startingPage](assets/screenshots/startingPage.png)
 
 ![correctAnswer](assets/screenshots/correctAnswer.png)
