@@ -1,4 +1,7 @@
-
+*{
+    margin: 0;
+    padding: 0;
+}
 
 html,body{
     font-family: sans-serif;
@@ -8,36 +11,23 @@ html,body{
   :root{
     --lightPurple : #c38ff9;
     --darkPurple : #46028f;
-  
   }
-  #highScores div div{
-    padding: 5px;
-    font-weight:600;
-  }
-  
-  #highScores div div:nth-child(odd){
-    background-color:#efe6f9;
-  }
-  
-  #highScores button{
-    margin:5px 0;
+
+
+  button{
+    background-color:var(--lightPurple);
+    color:white;
+    border: none;
+    padding:5px;
+    border-radius: 5px;
+    cursor:pointer;
   }
   
-  /* Section Specific Styles */
-  
-  #positionWrapper{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    
+  button:hover{
+    background-color: var(--darkPurple);
   }
-  
-  section{
-    max-width: 50%;
-    margin: 0 auto;
-  }
-  
-  
+
+
   #info{
     max-width:980px;
     margin: 0 auto;
@@ -50,61 +40,42 @@ html,body{
   }
   
   
-  #scores1{
-    /* position:absolute; */
-    /* top:16px; */
-    left:20px;
-    
+  #scores{
     color: var(--lightPurple);
     background-color: white;
   }
-  
-  #timer{
-    /* position:absolute; */
-    /* top:0; */
-    right:40px;
+
+
+  #positionWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
   }
   
+
   #intro{
     text-align:center;
   }
   
+
   
-  button{
-    background-color:#41275e;
-    color:white;
-    border: none;
-    padding:5px;
-    border-radius: 5px;
-    cursor:pointer;
-  }
-  
-  #intro button:hover{
-    background-color: #613a8d;
-  }
-  
-  
-  #quizHolder #title{
-    font-weight:700;
-  }
-  
-  
+
   #quizHolder button{
-    background-color:#41275e;
-    border-radius:5px;
-    color:white;
+    
     margin: 3px 0;
     padding: 5px 5px ;
-    cursor:pointer;
-    display: block;
+   display: block;
     width: 100%;
     text-align: left;
   }
-  
-  #quizHolder button:hover{
-    background-color: #613a8d;
+
+
+  #quizHolder #title{
+    font-weight:700;
   }
-  
+
+
   #scoreIndicator, #errorIndicator{
     border-top: 1px solid #999;
     color: #41275e;
@@ -119,7 +90,29 @@ html,body{
   margin:0;
   margin-top:10px;
   }
+
+  #highScores div div{
+   
+    padding: 5px;
+    font-weight:600;
+  }
   
+  #highScores div div:nth-child(odd){
+    background-color:#efe6f9;
+  }
+  
+  #highScores button{
+    margin:5px 0;
+  }
+  
+  /* Section Specific Styles */
+  
+  
+  section{
+    max-width: 50%;
+    margin: 0 auto;
+  }
+
   #records input, #records button{
   margin-top:5px;
   }
@@ -135,9 +128,6 @@ html,body{
   .disable{
   pointer-events:none;
   }
-  
-  
-  
   @media only screen and (min-width: 768px) {
   
     #positionWrapper{
