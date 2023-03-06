@@ -1,9 +1,83 @@
+
 *{
     margin : 0;
     padding : 0;
 }
 
 :root{
-    --ligthPurple: #e590ff;
-    --darkPurple : #8204c5;
+    --purple : #8204c5;
+    --darkPurple: #630ca6;
 }
+
+body{
+    font-family:'Times New Roman', Times, serif ; 
+}
+
+button{
+    background-color: var(--purple);
+    color:white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: var(--darkPurple);
+}
+
+#info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#positionWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+#quizHolder button{
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+#finish{
+    display: felx;
+    align-items: center;
+    margin-left: 10px;
+}
+
+#records{
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+#errorIndicator{
+    border-top: 1px solid #999;
+    font-size: large;
+    font-style: italic;
+    margin: 10px auto;
+}
+
+#highScores{
+    padding: 5px;
+    font-size: large;
+}
+
+#highScores div:nth-child(odd)
+{
+    background-color: #efe6f9;
+}
+
+#highScores button{
+    margin: 5px;
+}
+
+
+
