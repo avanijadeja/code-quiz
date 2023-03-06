@@ -1,19 +1,22 @@
+/* set default margin and padding o */
 *{
     margin: 0;
     padding: 0;
 }
 
+/* for html and body fontfamily is sans-serif and height is 100% */
 html,body{
     font-family: sans-serif;
     height:100%;
   }
   
+/* declare varibale with values */
   :root{
     --lightPurple : #c38ff9;
     --darkPurple : #46028f;
   }
 
-
+/* for all buttons property */
   button{
     background-color:var(--lightPurple);
     color:white;
@@ -23,15 +26,15 @@ html,body{
     cursor:pointer;
   }
   
+/* on button hover its changes background-color of button */
   button:hover{
     background-color: var(--darkPurple);
   }
 
-
-  #info{
+/*for introduction section values */
+    #info{
     max-width:980px;
     margin: 0 auto;
-   
     display:flex;
     align-items: center;
     justify-content: space-between;
@@ -39,96 +42,96 @@ html,body{
     padding: 16px 30px;
   }
   
-  
-  #scores{
+/*header highscore button values */
+#scores{
     color: var(--lightPurple);
     background-color: white;
   }
 
-
-  #positionWrapper{
+/*to display values in quiz use flex column */
+#positionWrapper{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
-  }
+    }
   
-
-  #intro{
+/* text alignment center for starting text */
+#intro{
     text-align:center;
   }
-  
 
-  
-
-  #quizHolder button{
-    
+/*for questions button set values */
+#quizHolder button{
     margin: 3px 0;
     padding: 5px 5px ;
-   display: block;
+    display: block;
     width: 100%;
     text-align: left;
   }
 
-
-  #quizHolder #title{
+/*set title weight */
+#quizHolder #title{
     font-weight:700;
   }
 
-
-  #scoreIndicator, #errorIndicator{
+/*for display score and error set values */
+#scoreIndicator, #errorIndicator{
     border-top: 1px solid #999;
-    color: #41275e;
-    font-size: 1.3em;
-    margin: 0;
+    color: #999 ;
     font-style: italic;
-    font-weight:700;
     margin: 10px auto;
   }
-  
-  #scoreIndicator p, #errorIndicator p{
-  margin:0;
-  margin-top:10px;
+
+/* for score and error paragraph tag set margin-top 10px */
+#scoreIndicator p, #errorIndicator p{
+   margin-top:10px;
   }
 
-  #highScores div div{
-   
+/* for value of highscore set padding and weight */
+#highScores div{
     padding: 5px;
-    font-weight:600;
+    font-weight:200;
   }
   
-  #highScores div div:nth-child(odd){
+/* for every odd entry in highscore it sets background color */
+#highScores div div:nth-child(odd){
     background-color:#efe6f9;
   }
   
-  #highScores button{
+/*set margin value for highscore button */ 
+#highScores button{
     margin:5px 0;
   }
   
-  /* Section Specific Styles */
-  
-  
-  section{
+/* Section Specific Styles */
+/*every section max-width is 50% and its margin is 0*/
+section{
     max-width: 50%;
     margin: 0 auto;
   }
 
-  #records input, #records button{
+/* for input and button of records its set margin-top 5px */
+#records input, #records button{
   margin-top:5px;
   }
   
-  .hide{
+/* for all class .hide it display none means dont show any value */  
+.hide{
     display:none;
   }
   
-  .invisible{
+ /* for invisible class it sets value hidden */ 
+.invisible{
     visibility:hidden;
-  }
+ }
   
-  .disable{
+/*for disable class it sets pointer is none */ 
+.disable{
   pointer-events:none;
-  }
-  @media only screen and (min-width: 768px) {
+}
+
+/*setting for media when min-width is 768px */
+@media only screen and (min-width: 768px) {
   
     #positionWrapper{
       min-height: calc(100% - 82px)

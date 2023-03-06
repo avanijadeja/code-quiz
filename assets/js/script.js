@@ -1,28 +1,23 @@
+
 document.addEventListener('DOMContentLoaded', (event) => {
-
-	//////////////////// SET INITIAL VARIABLES AND SETUP ARRAY/LOCAL STORAGE DATABASE ////////////////////
-
-	//1. Setting intial required variables 
+    //initialize varibales and array with initial value
 	const initialTime = 75;
 	let time = 75;
 	let score = 0;
 	let qCount = 0;
 	let timeset;
 	let answers = document.querySelectorAll('#quizHolder button');
-
-	//2. Sets array then if local storage exists it populates it into the array of records.
 	let recordsArray = [];
-	// Retrieve data if it exists or keep empty array otherwise.
+
+	//through getitem method store value in recordsArray array if values then using json method its parse and store in recordsArray array otherwise store null values
 	(localStorage.getItem('recordsArray')) ? recordsArray = JSON.parse(localStorage.getItem('recordsArray')): recordsArray = [];
 
-	//////////////////// FUNCTIONS MADE TO REDUCE REPEATED CODE ////////////////////
-
-	// FUNCTION to more quickly call elements less typing means less chance for errors
+	//function call with element and retrieve value in it 
 	let queryElement = (element) => {
 		return document.querySelector(element);
 	}
 
-	// FUNCTION to hide all sections then unhide the one provided by the parameter
+	//function call makes replace hidden values with values and after function again its makes value hide.
 	let onlyDisplaySection = (element) => {
 		let sections = document.querySelectorAll("section");
 		Array.from(sections).forEach((userItem) => {
@@ -31,7 +26,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		queryElement(element).classList.remove('hide');
 	}
 
-	// FUNCTION to reset HTML display for the score
+	// function to reset HTML display for the score
 	let recordsHtmlReset = () => {
 		queryElement('#highScores div').innerHTML = "";
 		var i = 1;
@@ -49,7 +44,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		});
 	}
 
-	// FUNCTION to set the question data in questionHolder section
+	// function to set the question data in questionHolder section
 	let setQuestionData = () => {
 		queryElement('#quizHolder p').innerHTML = questions[qCount].title;
 		queryElement('#quizHolder button:nth-of-type(1)').innerHTML = `1. ${questions[qCount].choices[0]}`;
@@ -58,7 +53,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		queryElement('#quizHolder button:nth-of-type(4)').innerHTML = `4. ${questions[qCount].choices[3]}`;
 	}
 
-	//FUNCTION changes the question and has a parameter to control the text which is provided weather it is correct or wrong
+	//function changes the question and has a parameter to control the text which is provided weather it is correct or wrong
 	let quizUpdate = (answerCopy) => {
 		queryElement('#scoreIndicator p').innerHTML = answerCopy;
 		queryElement('#scoreIndicator').classList.remove('invisible', scoreIndicator());
@@ -84,7 +79,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		}, 1000);
 	}
 
-	// FUNCTION handles time related events for the quiz
+	// function handles time related events for the quiz
 	let myTimer = () => {
 		if (time > 0) {
 			time = time - 1;
@@ -96,46 +91,40 @@ document.addEventListener('DOMContentLoaded', (event) => {
 		}
 	}
 
-	//////////////////// QUIZ INITILIZATION AND TIMER ////////////////////
-
 	// On intro button click start time and starts giving questions
 	let clock;
 	queryElement("#intro button").addEventListener("click", (e) => {
-		//call above function to set Initial data in questionHolder section
+        queryElement('#time').innerHTML = time;
+	    //call above function to set Initial data in questionHolder section
 		setQuestionData();
 		onlyDisplaySection("#quizHolder");
 		clock = setInterval(myTimer, 1000);
 	});
 
 	// Clears timeout if next question is answered before current timeout is reached or if form element has a requirement not met.
-
-	let scoreIndicator = () => {
+    let scoreIndicator = () => {
 		clearTimeout(timeset);
 		timeset = setTimeout(() => {
 		    queryElement('#scoreIndicator').classList.add('invisible');
 		}, 1000);
 	}
 
-	//////////////////// QUIZ CONTROLS ////////////////////
-
-	// Create an array of selected divs so I can refer to them with the this keyword and replace their values to then check against the answer property for all questions.
+// Create an array of selected divs so I can refer to them with the this keyword and replace their values to then check against the answer property for all questions.
 	Array.from(answers).forEach(check => {
 		check.addEventListener('click', function (event) {
 			// Handles events if a question is answered correctly
 			if (this.innerHTML.substring(3, this.length) === questions[qCount].answer) {
 				score = score + 1;
 				qCount = qCount + 1;
-				quizUpdate("Correct");
+				quizUpdate("Correct!");
 			}else{
 				// Handles events if a question is answered incorrectly.
 				time = time - 10;
 				qCount = qCount + 1;
-				quizUpdate("Wrong");
+				quizUpdate("Wrong!");
 			}
 		});
 	});
-
-	//////////////////// SCORE SUBMISSION ////////////////////
 
 	// Displays error message if initials given do not meet requirements
 	let errorIndicator = () => {
@@ -171,8 +160,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 			queryElement("#initials").value = '';
 		}
 	});
-
-	//////////////////// HIGH SCORE CONTROL ARRAY/LOCAL STORAGE ////////////////////
 
 	// Clears highscores from the html, array and localstorage
 	queryElement("#clearScores").addEventListener("click", () => {
